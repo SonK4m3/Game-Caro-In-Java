@@ -10,7 +10,8 @@ public class Player {
 		inturn = false;
 	}
 	
-	public void getInput() {
-		// get X or O
+	public void setInput(String symbol, boolean inturn) {
+		this.inturn = inturn;
+		this.symbol = symbol;
 	}
 }

@@ -6,11 +6,6 @@ package Test;
 
 public class Main {
 	
-	final boolean stopGame = false;
-	final boolean stopDisplay = false;
-//	Player player1 = new Player();
-//	Player player2 = new Player();
-	
 	public static void main(String[] args) {
 		// create frame choose X or O
 		new PlayerInputFrame();
