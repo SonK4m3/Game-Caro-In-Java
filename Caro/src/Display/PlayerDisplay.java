@@ -19,7 +19,7 @@ public class PlayerDisplay extends JFrame implements MouseListener, ChangeListen
 	JButton buttonX, buttonO, backFrame, buttonFinish;
 	JLabel label, labelSlider;	
 	JSlider sliderX, sliderY;
-	
+		
 	public PlayerDisplay(){
 		board = new Board();
 		player1 = new Player();
@@ -37,22 +37,30 @@ public class PlayerDisplay extends JFrame implements MouseListener, ChangeListen
 		border1 = BorderFactory.createLineBorder(Color.red, 3);
 		border2 = BorderFactory.createLineBorder(Color.blue, 3);
 
-
-		// label
+		// default board
+		board.setSize(10, 10);
+		
+		// default player
+		player1.setInfor("X", true);
+		player2.setInfor("O", false);
+		
+		// default label
 		label.setBounds(100, 200, 200, 50);
 		label.setBackground(Color.cyan);
 		label.setOpaque(true);
 		label.setText("NULL");
 		label.setVerticalAlignment(JLabel.CENTER);
 		label.setHorizontalAlignment(JLabel.CENTER);
+		label.setText("Player1   X - O   Player2");
 		//------------------------------
 		
-		// labelSlider
+		// default labelSlider
 		labelSlider.setBounds(100, 250, 200, 50);
 		labelSlider.setBackground(Color.yellow );
 		labelSlider.setOpaque(true);
 		labelSlider.setVerticalAlignment(JLabel.CENTER);
 		labelSlider.setHorizontalAlignment(JLabel.CENTER);
+		labelSlider.setText("Board size: " + 10 + "x" + 10);
 		
 		// slider
 		sliderX.setBounds(100, 0, 200, 50);
@@ -123,6 +131,7 @@ public class PlayerDisplay extends JFrame implements MouseListener, ChangeListen
 		}
 		
 		if(e.getSource() == buttonX) {
+			label.setText(null);
 			player1.setInfor("X", true);
 			player2.setInfor("O", false);
 
@@ -134,6 +143,7 @@ public class PlayerDisplay extends JFrame implements MouseListener, ChangeListen
 		}
 		
 		if(e.getSource() == buttonO) {
+			label.setText(null);
 			player1.setInfor("O", true);
 			player2.setInfor("X", false);
 
@@ -172,6 +182,7 @@ public class PlayerDisplay extends JFrame implements MouseListener, ChangeListen
 	public void stateChanged(ChangeEvent e) {
 		int x = sliderX.getValue();
 		int y = sliderY.getValue();
+		labelSlider.setText(null);
 		labelSlider.setText("Board size: " + x + "x" + y);
 		board.setSize(x, y);
 	}

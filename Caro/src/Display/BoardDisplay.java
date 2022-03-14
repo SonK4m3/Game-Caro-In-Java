@@ -32,19 +32,10 @@ public class BoardDisplay{
 				cells[i][j].setBounds(i * 50 + 2, j * 50 + 2, 50, 50);
 				cells[i][j].setBorder(border);
 				
-				cells[i][j].addMouseListener(new MyMouseListener(cells[i][j], i, j, board));
+				cells[i][j].addMouseListener(new MyMouseListener(cells[i][j], i, j, board, player1, player2));
 				frame.add(cells[i][j]);
 			}
-		}
-		
-		player1.printInfor();
-		player2.printInfor();
-		System.out.println(xSize + " " + ySize);
-		
-		// board
-//		board.print();
-		
-		
+		}			
 		
 		// frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,8 +46,4 @@ public class BoardDisplay{
 		frame.setVisible(true);
 	}
 	
-	public void getSize(int xSize, int ySize) {
-		this.xSize = xSize;
-		this.ySize = ySize;
-	}
 }
