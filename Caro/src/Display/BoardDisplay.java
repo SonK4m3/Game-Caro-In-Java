@@ -32,7 +32,7 @@ public class BoardDisplay{
 				cells[i][j].setBounds(i * 50 + 2, j * 50 + 2, 50, 50);
 				cells[i][j].setBorder(border);
 				
-				cells[i][j].addMouseListener(new MyMouseListener(cells[i][j], i, j, board, player1, player2));
+				cells[i][j].addMouseListener(new MyMouseListener(frame, cells[i][j], i, j, board, player1, player2));
 				frame.add(cells[i][j]);
 			}
 		}			

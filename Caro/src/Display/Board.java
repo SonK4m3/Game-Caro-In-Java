@@ -38,7 +38,7 @@ public class Board{
 		this.oSide = new int[MAX][MAX];
 		this.oRow = new int[MAX][MAX];
 		this.oCol = new int[MAX][MAX];
-		this.remains = row * col;
+		this.remains = MAX * MAX;
 	}
 	
 	public boolean isFull() {
@@ -48,6 +48,7 @@ public class Board{
 	public void setSize(int row, int col) {
 		this.row = row;
 		this.col = col;
+		this.remains = row * col;
 	}
 	
 	public void setMain(){
@@ -128,7 +129,7 @@ public class Board{
 			int cnt = 0;
 			int k = i;
 			for(int j = col - 1; j >= i; j--){
-				if(k < 0 || k > row - 1|| j < 0 || j > col - 1)
+				if(k < 0 || k > row || j < 0 || j > col)
 					continue;
 				
 				if(mat[k][j] == 1)
@@ -144,8 +145,8 @@ public class Board{
 		for(int j = 0; j < col; j++){
 			int cnt = 0;
 			int k = j;
-			for(int i = 0; i <= col - j; i++){
-				if(i < 0 || i > row - 1 || k < 0 || k > col - 1)
+			for(int i = 0; i < row; i++){
+				if(i < 0 || i > row || k < 0 || k > col)
 					continue;
 			
 				if(mat[i][k] == 1)
@@ -163,7 +164,7 @@ public class Board{
 			int cnt = 0;
 			int k = i;
 			for(int j = col - 1; j >= i; j --){
-				if(k < 0 || k > row - 1|| j < 0 || j > col - 1)
+				if(k < 0 || k > row|| j < 0 || j > col)
 					continue;
 				
 				if(mat[k][j] == 0)
@@ -176,11 +177,11 @@ public class Board{
 			}
 		}
 		
-		for(int j = 0; j < row; j++){
+		for(int j = 0; j < col; j++){
 			int cnt = 0;
 			int k = j;
-			for(int i = 0; i <= col - j; i++){
-				if(i < 0 || i > row - 1 || k < 0 || k > col - 1)
+			for(int i = 0; i < row; i++){
+				if(i < 0 || i > row|| k < 0 || k > col)
 					continue;
 				
 				if(mat[i][k] == 0)

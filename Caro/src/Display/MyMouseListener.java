@@ -4,11 +4,12 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Test.PlayerInputFrame;
-
 public class MyMouseListener extends MouseAdapter{
+	
+	JFrame frame;
 	Cell cell;
 	int i;
 	int j;
@@ -17,7 +18,8 @@ public class MyMouseListener extends MouseAdapter{
 	
 	boolean gameStop = false;
 	
-	MyMouseListener(Cell cell, int i, int j, Board board, Player player1, Player player2){
+	MyMouseListener(JFrame frame, Cell cell, int i, int j, Board board, Player player1, Player player2){
+		this.frame = frame;
 		this.cell = cell;
 		this.i = i;
 		this.j = j;
@@ -28,7 +30,7 @@ public class MyMouseListener extends MouseAdapter{
 	
 	void process() {
 		board.setMaxXO();
-		
+				
 		if(board.maxO == board.condition) {
     		if(player1.symbol.equals("O")){
     			JOptionPane.showMessageDialog(null,"player1 win", "title", JOptionPane.INFORMATION_MESSAGE);
@@ -91,7 +93,8 @@ public class MyMouseListener extends MouseAdapter{
     			System.exit(0);
     		}
     		else {
-    			
+    			frame.dispose();
+    			new PlayerDisplay();
     		}
     	}
     	
