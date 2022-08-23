@@ -1,0 +1,76 @@
+New Game:   Bắn máy bay
+
+Task:
+	- Đặt 2 máy bay, mỗi lần thay đổi vị trí 1 máy bay thì các máy bay khác 
+	sẽ cập nhật lại trạng thái.
+	
+
+Bug:
+	- đặt cả 2 máy bay, xóa máy bay 1 thì sẽ không xóa được máy bay 2
+	- 
+
+Description:    
+	- logic game:
+		- mỗi ván đấu người chơi sẽ đặt 2 máy bay lên trên bàn
+		- mỗi lượt người chơi được phép bắn 1 viên đạn vào 1 ô tọa độ
+		- nếu viên đạn không trung vào máy bay thì không hiện gì cả
+		- nếu bắn trung máy bay, trên màn hình sẽ hiện:
+			- màu xanh nếu trúng cánh máy bay
+			- màu đỏ nếu là đầu máy bay
+	
+	- Giao diện:
+		- menu: 
+			- chế độ chơi 2 người
+			- chế độ chơi với máy
+			- setting
+			- thoát chương trình
+		- màn hình máy bay của người chơi:
+			- hiện 2 máy bay mà người chơi đã sắp xếp
+		- màn hình trống để bắn máy bay đối thủ:
+			- bấm vào các ô tọa độ để bắn
+			- đang lượt của đối thủ thì không được chọn ô
+		- màn hình thông báo:	
+			- thông báo trạng thái bàn chơi và lượt chơi
+		
+
+Model:
+	- class Enemy: extends EnemyGraph
+		- tọa dộ đầu máy bay: int xPosHead, int yPosHead
+		- tọa độ các cánh máy bay:
+			- máy bay theo hướng trái: int[][] headLeft
+			- máy bay theo hướng phải: int[][] headRight
+			- máy bay theo hướng lên trên: int[][] headRight
+			- máy bay theo hướng xuống dưới: int[][] headBot
+		- các hàm set get 
+		- Contructor Enemy: 
+			- 
+		
+		- paint: 
+		- hàm tối ưu khởi tạo optimization init plane:
+			- ta sẽ kiểm tra khi tạo một máy bay mới nếu cánh trùng với cạnh bàn cờ hoặc ra ngoài khỏi bàn cờ
+			- ta sẽ đặt máy bay theo từng trường hợp sau mỗi lần pressed vào 1 ô vuông.
+	- class Board:
+		- matrix[n][n]
+	
+	- class Mist:
+
+View:
+	
+	- class EnemyGraphic:
+		
+	
+	- class BoardGrphic:
+		
+	
+	- class Diplay: 
+	
+
+Control:
+	- class GameLoop:
+		- loop:
+		
+	- class MyMouseListener: implements MouseListener
+		
+
+
+
